@@ -1,12 +1,13 @@
+require('dotenv').config();
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const path = require('path');
 
 // 1. Configure suas credenciais
 cloudinary.config({
-  cloud_name: 'dj1hsuwyg',
-  api_key: '628623779278147',
-  api_secret: '0TGli_fp9lfAQy4KpWw4NnueIoE',
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
   secure: true
 });
 

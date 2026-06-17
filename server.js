@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
@@ -9,19 +10,18 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const app = express();
 const PORT = process.env.PORT || 3000; // Porta dinâmica para o Render
-const SECRET_KEY = 'sosofat_permanent_key_2026';
+const SECRET_KEY = process.env.JWT_SECRET || 'sosofat_permanent_key_2026';
 
 // --- CONFIGURAÇÕES DE CAMINHOS ---
 const DATA_FILE = path.join(__dirname, 'data', 'gallery.json');
 const USERS_FILE = path.join(__dirname, 'data', 'users.json');
 
 // --- CONFIGURAÇÃO CLOUDINARY ---
-// Substitua pelos seus dados do painel Cloudinary
- cloudinary.config({ 
-        cloud_name: 'dj1hsuwyg', 
-        api_key: '628623779278147', 
-        api_secret: 'CLOUDINARY_URL=cloudinary://628623779278147:**********@dj1hsuwyg' 
-        });
+cloudinary.config({ 
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET 
+});
 
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,

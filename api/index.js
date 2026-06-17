@@ -35,7 +35,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // Token estático simples para segurança do Admin (Simula o JWT que seu admin.js espera)
-const ADMIN_TOKEN = "sosofat_token_secreto_2026";
+const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "sosofat_token_secreto_2026";
 
 // ==========================================
 // ROTAS DE AUTENTICAÇÃO E BACKEND
@@ -46,7 +46,7 @@ app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
 
   // Alinhado com as suas credenciais de acesso
-  if (username === 'sosofat63' && password === 'ss0305') {
+  if (username === process.env.ADMIN_USER && password === process.env.ADMIN_PASS) {
     return res.json({ success: true, token: ADMIN_TOKEN });
   } else {
     return res.status(401).json({ success: false, error: "Usuário ou senha incorretos!" });
