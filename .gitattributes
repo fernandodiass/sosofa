@@ -1,0 +1,5 @@
+# Detecta automaticamente arquivos de texto e normaliza as quebras de linha
+* text=auto
+
+# Garante que arquivos JSON sempre usem LF (útil para consistência de dados)
+*.json text eol=lf

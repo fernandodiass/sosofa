@@ -69,6 +69,22 @@ Este script lê o `gallery.json`, faz o upload para a pasta `sosofa_gallery` no 
 - `migrate.js`: Utilitário de migração de assets.
 - `/data/gallery.json`: Base de dados do catálogo de fotos.
 
+### Exemplo de Estrutura de Dados (JSON)
+As imagens na galeria seguem este padrão no arquivo `gallery.json`:
+
+```json
+{
+  "gallery": [
+    {
+      "id": 1,
+      "url": "https://res.cloudinary.com/...",
+      "title": "Nome do Produto",
+      "timestamp": "2026-05-04T10:20:36"
+    }
+  ]
+}
+```
+
 ---
 Desenvolvido por Fernando Dias.
 ```
