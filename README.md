@@ -87,6 +87,3 @@ As imagens na galeria seguem este padrão no arquivo `gallery.json`:
 
 ---
 Desenvolvido por Fernando Dias.
-```
-
-```json
