@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Só Sofá T-63 — Painel da Galeria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+
+<body class="admin-body">
+
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="header-content">
+            <img src="../logo-branca.svg" alt="Só Sofá T-63" class="site-logo">
+            <button id="logoutBtn" class="logout-btn">Sair</button>
+        </div>
+    </header>
+
+    <main class="container admin-main">
+
+        <!-- Upload panel -->
+        <div class="admin-panel glass-dark">
+            <h3>Fazer Upload de Foto</h3>
+            <p>Adicione novas fotos dinamicamente na galeria do site.</p>
+
+            <form id="uploadForm" class="upload-form">
+                <div class="file-drop-area">
+                    <span class="fake-btn">Escolher arquivo</span>
+                    <span class="file-msg" id="fileMsg">Ou arraste e solte a imagem aqui</span>
+                    <input type="file" id="imageInput" class="file-input" accept="image/png, image/jpeg, image/webp"
+                        required>
+                </div>
+                <input type="text" id="imageCaption" class="text-input" placeholder="Título descritivo da imagem"
+                    required>
+                <button type="submit" class="submit-btn" id="uploadBtn">Fazer Upload</button>
+            </form>
+
+            <p id="uploadStatus" class="status-msg"></p>
+        </div>
+
+        <!-- Gallery management panel -->
+        <div class="admin-panel glass-dark" style="margin-top: 1.5rem;">
+            <h3>Gerenciar Fotos</h3>
+            <p>Edite títulos ou remova imagens da galeria.</p>
+            <div id="adminGalleryList" class="admin-gallery-list">
+                <!-- Rendered by admin.js -->
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

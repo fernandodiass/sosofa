@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Só Sofá T-63 — Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+
+<body class="login-body">
+
+    <div class="login-container glass-dark">
+
+        <div style="margin-bottom: 1.75rem;">
+            <img src="../logo-branca.svg" alt="Só Sofá T-63" class="site-logo">
+        </div>
+
+        <form id="loginForm" class="login-form">
+            <input type="text" id="adminUser" placeholder="Usuário" required autocomplete="username">
+            <input type="password" id="adminPassword" placeholder="Senha" required
+                autocomplete="current-password">
+            <button type="submit" class="submit-btn">Entrar</button>
+        </form>
+
+        <p id="loginError" class="error-msg"></p>
+
+    </div>
+
+    <script src="/admin/js/admin.js"></script>
+</body>
+
+</html>

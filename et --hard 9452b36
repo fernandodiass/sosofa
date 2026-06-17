@@ -1,0 +1,209 @@
+[33mcommit 9452b364665bb72a05645f836b29c7ae9412a0e2[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 11:35:55 2026 -0300
+
+    Migrando da HostGator para Vercel
+
+[33mcommit 3443b8a754872375421fa15e1952b6b4f31b160d[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 11:43:54 2026 -0300
+
+    Adicionando configuração da Vercel
+
+[33mcommit 1888a2251da9b0f25406a58023c143942e91607a[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 11:47:30 2026 -0300
+
+    Ajuste para deploy Vercel
+
+[33mcommit 6e00af68140450f8bf49ac3607872d1e556fe664[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 12:01:30 2026 -0300
+
+    Conectando ao Vercel Blob
+
+[33mcommit bc902f4ede169f2b72ba4ba6f43531c3659f1f73[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 12:15:36 2026 -0300
+
+    Fix root route and 404
+
+[33mcommit a69307d95e2abc0d2c2f34dbc276af707a4c4f48[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 12:28:47 2026 -0300
+
+    Ajuste de rotas admin, front-end e fix 404
+
+[33mcommit 0c6b8867cfe2c08fbd121a67c64bcc09368aa06f[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 12:43:25 2026 -0300
+
+    Configurando rotas do admin e site principal
+
+[33mcommit 2bcc77d3aa013a3d0ce8b8315bfb4e3efa7cb12a[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 12:51:11 2026 -0300
+
+    Fix: Servindo arquivos estaticos e visual
+
+[33mcommit c886bd75c282a19bbbd8d4008064b95a23c697d2[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 13:15:15 2026 -0300
+
+    Fix: Estrutura public/api e vercel.json corrigidos
+
+[33mcommit 1de253fd83f7579593c4dde5b8564b7692880708[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 13:22:22 2026 -0300
+
+    Force deploy: nova estrutura public
+
+[33mcommit c1ef425e9266c5c05ded6f198e1b7b31a525693d[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 13:31:09 2026 -0300
+
+    Fix: Atualizando endpoints da API para produção
+
+[33mcommit 7e55314727dae4174d21468b7cb9b42ea158b966[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 13:34:29 2026 -0300
+
+    Fix: Removendo localhost da linha 77
+
+[33mcommit 94fb8dff3bea4dce2a506e7e8e3b6d3acaf593ac[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 13:41:35 2026 -0300
+
+    Fix: endpoint de login do admin corrigido
+
+[33mcommit 3be7c205f2cc0b9427c42356e85d8cc33d373c1f[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 13:52:14 2026 -0300
+
+    Fix: caminhos do admin.js e endpoints da API corrigidos para Vercel
+
+[33mcommit d3d5fe71246e88ff2b6b85e571eff5201283cd9b[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 13:56:55 2026 -0300
+
+    Fix: corrigindo caminho do script admin para evitar erro 404
+
+[33mcommit e39dabd9fa367a2e6e6aa0c8d25cf70911e0cd12[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 13:59:17 2026 -0300
+
+    Fix: corrigindo caminho do script admin para evitar erro 404
+
+[33mcommit 6684ce6745d1ba07e906a305e2af7a5dae5496d7[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 14:00:58 2026 -0300
+
+    Fix: corrigindo caminho do script admin para evitar erro 404
+
+[33mcommit 287cb832fc9b0957595af9e9b8e91d43db58c42c[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 14:01:25 2026 -0300
+
+    Fix: corrigindo caminho do script admin para evitar erro 404
+
+[33mcommit fabe320fed880ef188c42c26b10a956cbdedd512[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 14:08:27 2026 -0300
+
+    Fix localhost
+
+[33mcommit 9c1d16dfce212815a84566fd1a9871ec4e9207e5[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 14:15:54 2026 -0300
+
+    Fix: endpoints da API e caminhos de script corrigidos para Vercel
+
+[33mcommit f0e556a42ac36d85b163fd821d111869f8de38a0[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 14:20:51 2026 -0300
+
+    Fix: Adicionada lógica de exclusão e caminhos de API
+
+[33mcommit f7458ce58ef959ec8a248045b9630f8cbaf705f8[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 16:41:57 2026 -0300
+
+    Fix: corrigindo caminho de redirecionamento do dashboard
+
+[33mcommit 6c56b076de7e0b78eb38d6fd1840b3898c3cad6d[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 16:51:01 2026 -0300
+
+    Fix: corrigindo caminho de redirecionamento do dashboard
+
+[33mcommit 1c680614557d7f64960146e063c1c648dd859439[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 17:25:26 2026 -0300
+
+    feat: adicionar galeria de fotos com 57 itens
+
+[33mcommit d521f0145418d3a0476e73f8ef6c1da48e3d2a6d[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 19:48:50 2026 -0300
+
+    Limpeza de cache e atualização de scripts
+
+[33mcommit d46ffd06a73dbb147a969d2c0caed9398fd6b27c[m
+Author: Fernanado Dias <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 19:49:20 2026 -0300
+
+    Upload: img-1777934957907-teste.jpeg
+
+[33mcommit 010b57bd8e9afd76d07a6bf4985c7b47d088ab79[m
+Author: Fernanado Dias <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 19:49:21 2026 -0300
+
+    Update gallery.json: Poltronas Redondas Azul Petróleo
+
+[33mcommit 9bb67acc7d097e16aacac9d512e44d448adeed8b[m
+Author: Fernanado Dias <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 19:50:30 2026 -0300
+
+    Upload: img-1777935027680-WhatsApp_Image_2026-05-04_at_10.20.36.jpeg
+
+[33mcommit 7bc0856fe402e89f8b6cc23076694f3f4c1e90f4[m
+Author: Fernanado Dias <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 19:50:31 2026 -0300
+
+    Update gallery.json: Sofá Modular Cinza com Puff
+
+[33mcommit e07596915e7dd3b7edd23670b14319c2b72b4d38[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 20:01:01 2026 -0300
+
+    Fix: Atualizando admin.js e dashboard.html - Lógica GitHub API
+
+[33mcommit 4a696b1da45354bea608d768d431ad98f06e59bb[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Mon May 4 20:05:26 2026 -0300
+
+    update: novo token de seguranca
+
+[33mcommit 55498841b4eb61ed3e16457442b8972644de90f9[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Tue May 5 07:01:05 2026 -0300
+
+    fix: padronizando urls do json e removendo prefixo public
+
+[33mcommit 70a9eccaca37687531cd72b7a9b4e97531a3bd7b[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Tue May 5 07:21:06 2026 -0300
+
+    fix: padronizando urls do json e removendo prefixo public
+
+[33mcommit 65dc431327c154dad4c65f18a5bbc489723e231a[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Tue May 5 07:51:26 2026 -0300
+
+    fix: restaura lógica dos botões de serviços e ajusta animação css
+
+[33mcommit c74291dd35f953b3117126aca2334a962fc845e5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: fernandodiass <fernandodiasdesign@gmail.com>
+Date:   Tue May 5 07:56:01 2026 -0300
+
+    fix: restaura lógica dos botões de serviços e ajusta animação css
