@@ -1,53 +1,57 @@
-import { createClient } from '@supabase/supabase-js';
-import dotenv from 'dotenv';
-import fs from 'fs';
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
+const path = require('path');
 
-dotenv.config();
+// 1. Configure suas credenciais
+cloudinary.config({
+  cloud_name: 'dj1hsuwyg',
+  api_key: '628623779278147',
+  api_secret: '0TGli_fp9lfAQy4KpWw4NnueIoE',
+  secure: true
+});
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
+const DATA_FILE = path.join(__dirname, 'data', 'gallery.json');
+const UPLOADS_DIR = path.join(__dirname, 'uploads');
 
-if (!supabaseUrl || !supabaseKey) {
-  console.error("❌ Erro: SUPABASE_URL ou SUPABASE_KEY não foram encontradas no .env");
-  process.exit(1);
-}
+async function migrate() {
+    console.log("Iniciando migração para Cloudinary...");
+    
+    // Lê o arquivo gallery.json original
+    const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+    const items = data.gallery || data;
+    const newGallery = [];
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+    for (const item of items) {
+        // O caminho da imagem no seu PC
+        const localPath = path.join(__dirname, item.url);
 
-async function migrarDados() {
-  try {
-    console.log("📦 Lendo o arquivo gallery.json...");
-    const dataJson = fs.readFileSync('./data/gallery.json', 'utf8');
-    const dadosBrutos = JSON.parse(dataJson);
+        if (fs.existsSync(localPath)) {
+            try {
+                console.log(`Enviando: ${item.title}...`);
+                // Envia para o Cloudinary
+                const result = await cloudinary.uploader.upload(localPath, {
+                    folder: 'sosofa_gallery'
+                });
 
-    // Converte os dados para Array, caso venham como um objeto { key: { ... } }
-    const listaProdutos = Array.isArray(dadosBrutos) 
-      ? dadosBrutos 
-      : Object.values(dadosBrutos);
-
-    // Formata removendo o ID antigo para evitar conflito com o autoincremento do Supabase
-    const produtosFormatados = listaProdutos.map(item => ({
-      title: item.title || "Sem título",
-      url: item.url || "",
-      timestamp: item.timestamp || new Date().toISOString()
-    }));
-
-    console.log(`🔌 Conectando ao Supabase e enviando ${produtosFormatados.length} itens para a tabela 'fotos'...`);
-
-    const { data, error } = await supabase
-      .from('fotos') 
-      .insert(produtosFormatados);
-
-    if (error) {
-      throw error;
+                // Substitui a URL local pela URL do Cloudinary
+                newGallery.push({
+                    ...item,
+                    url: result.secure_url // A nova URL https://...
+                });
+                console.log(`Sucesso: ${item.id}`);
+            } catch (err) {
+                console.error(`Erro ao enviar ${item.url}:`, err.message);
+                newGallery.push(item); // Mantém o original em caso de erro
+            }
+        } else {
+            console.warn(`Arquivo não encontrado localmente: ${item.url}`);
+            newGallery.push(item);
+        }
     }
 
-    console.log("✅ Sucesso absoluto! Todos os dados estão salvos na tabela 'fotos'.");
-  } catch (error) {
-    console.error("❌ Erro durante a migração para o Supabase:", error.message);
-  } finally {
-    process.exit();
-  }
+    // Salva o novo gallery.json com as 59 URLs do Cloudinary
+    fs.writeFileSync(DATA_FILE, JSON.stringify({ gallery: newGallery }, null, 2));
+    console.log("\nMigração concluída! Todas as URLs foram atualizadas no gallery.json.");
 }
 
-migrarDados();
+migrate();

@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Na Oracle Cloud com Nginx, o 'window.location.origin' já resolve para o domínio correto.
     // Se estiver em localhost, ele aponta para a porta 3000 do Node.
     const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:3000' 
-    : ''; // Isso fará o fetch buscar no IP 150.230.71.76 automaticamente
+        ? 'http://localhost:3000' 
+        : '';
 
     // --- Mobile Navigation Toggle ---
     const menuToggle = document.getElementById('menuToggle');

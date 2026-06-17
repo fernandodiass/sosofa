@@ -9,22 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const adminGalleryList = document.getElementById('adminGalleryList');
 
     if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Pega os valores digitados nos inputs
-            const usernameInput = document.getElementById('adminUser').value;
-            const passwordInput = document.getElementById('adminPassword').value;
-
-            // Validação estática local (Exatamente como o seu projeto funciona)
-            if (usernameInput === 'sosofat63' && passwordInput === 'sosofat63') {
-                // Cria um token fictício local para manter a sessão ativa
-                localStorage.setItem('sosofat_admin_auth', 'sosofat_token_local_2026');
-                
-                // Redireciona direto para o painel de controle
-                window.location.href = 'admin/dashboard.html';
+            const res = await fetch(`${API_BASE_URL}/api/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: document.getElementById('adminUser').value,
+                    password: document.getElementById('adminPassword').value
+                })
+            });
+            const result = await res.json();
+            if (result.success) {
+                localStorage.setItem('sosofat_admin_auth', result.token);
+                window.location.href = 'dashboard.html';
             } else {
-                alert("Usuário ou senha incorretos!");
+                alert(result.error);
             }
         });
     }
@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('image', document.getElementById('imageInput').files[0]);
             formData.append('caption', document.getElementById('imageCaption').value);
 
-            // Mantido /api/upload pois envolve o upload de arquivos físicos para o Cloudinary
             const res = await fetch(`${API_BASE_URL}/api/upload`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
@@ -63,12 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
         async function loadAdminGallery() {
             if (!adminGalleryList) return;
             try {
-                // Atualizado para buscar da sua nova rota do Supabase
-                const res = await fetch(`${API_BASE_URL}/api/fotos`);
+                const res = await fetch(`${API_BASE_URL}/api/gallery`);
                 const data = await res.json();
-                
-                // Adapta o mapeamento para ler diretamente o array retornado pelo Supabase
-                const images = Array.isArray(data) ? data : [];
+                const images = Array.isArray(data) ? data : (data.gallery || []);
                 
                 adminGalleryList.innerHTML = images.map(img => `
                     <div class="admin-gallery-item">
@@ -91,8 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const newTitle = prompt("Novo título:", oldTitle);
             if (!newTitle || newTitle === oldTitle) return;
 
-            // Atualizado para atualizar na rota /api/fotos/:id
-            const res = await fetch(`${API_BASE_URL}/api/fotos/${id}`, {
+            const res = await fetch(`${API_BASE_URL}/api/gallery/${id}`, {
                 method: 'PUT',
                 headers: { 
                     'Content-Type': 'application/json',
@@ -106,8 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.deletePhoto = async (id) => {
             if (!confirm('Excluir permanentemente?')) return;
-            // Atualizado para deletar na rota /api/fotos/:id
-            const res = await fetch(`${API_BASE_URL}/api/fotos/${id}`, {
+            const res = await fetch(`${API_BASE_URL}/api/gallery/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
